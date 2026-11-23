@@ -1,0 +1,70 @@
+{
+  "name": "queuelane",
+  "version": "0.1.0",
+  "description": "Async task queue with priorities, per-group concurrency and rate limits, retries with backoff, timeouts and abort. Zero dependencies, runs anywhere.",
+  "author": "Krishna Gulalia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrishnaGulalia/queuelane.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KrishnaGulalia/queuelane/issues"
+  },
+  "homepage": "https://github.com/KrishnaGulalia/queuelane#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "queue",
+    "task-queue",
+    "promise-queue",
+    "concurrency",
+    "rate-limit",
+    "priority",
+    "retry",
+    "backoff",
+    "throttle",
+    "llm",
+    "api",
+    "abort-signal"
+  ],
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.1"
+  }
+}
